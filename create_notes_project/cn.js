@@ -1,38 +1,40 @@
 
 
 let button =document.querySelector("button")
-let textArea = document.querySelector("#text-area")
-
+let Addnotes = document.querySelector("#text-area")
 
 button.addEventListener("click",function(){
-    let notes = document.createElement("p")
+    let p = document.createElement("p")
+    p.setAttribute("contenteditable","true")
+    p.className ="input-box"
     let img = document.createElement("img")
-    img.src = "delete.png"
-    notes.setAttribute("contenteditable","true")
-    notes.className = "input-box"
-    textArea.appendChild(notes).appendChild(img)
+    img.src = "delete.png" 
+    Addnotes.appendChild(p).appendChild(img)
+
 })
 
-textArea.addEventListener("click",function(e){
-        if(e.target.tagName ==="IMG"){
-            e.target.parentElement.remove()
-            savedata()
-        }
-        else if(e.target.tagName === "P"){
-            let notes = document.querySelectorAll(".input-box")
-            notes.forEach(function(d){
-                d.onkeyup= function(){
-                    savedata()
-                }
-            })
-        }
-    })
+Addnotes.addEventListener("click",function(e){
+    if(e.target.tagName==="IMG"){
+       e.target.parentElement.remove()
+       saveData()
+    }
+    else if(e.target.tagName==="P"){
+        let input = document.querySelectorAll(".input-box")
+        input.forEach(function(items){
+            items.onkeyup = function(){
+                saveData()
+            }
+        })
+    }
+})
 
-function savedata(){
-    localStorage.setItem("data1",textArea.innerHTML)
-}
-function getdata(){
-    textArea.innerHTML = localStorage.getItem("data1")
+function saveData(){
+    localStorage.setItem("data2",Addnotes.innerHTML)
 }
 
-getdata()
+function shoewData(){
+    Addnotes.innerHTML = localStorage.getItem("data2")
+}
+
+shoewData()
+
