@@ -31,6 +31,7 @@ body{
 }
 
 #quetions h2{
+    margin-top: 15px;
     font-size: 18px;
     color:#001e4d;
     font-weight: 600;
@@ -51,4 +52,17 @@ body{
 .btn:hover{
     background:#222;
     color:#fff;
+}
+
+#next{
+    background:#001e4d;
+    color: #fff;
+    font-weight: 500;
+    width: 150px;
+    border: 0;
+    padding: 10px;
+    margin: 20px auto 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: none;
 }
